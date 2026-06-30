@@ -13,7 +13,7 @@ import mmap
 import ctypes
 import sys
 
-sys.path.insert(0, "/home/l00938527")
+sys.path.insert(0, "/home/workspace")
 
 from bmpclient.client import UMMServiceClient
 from bmpclient.umm_client import ChunkDescriptor
@@ -37,8 +37,8 @@ def get_bridge():
     pid = os.getpid()
     if pid not in _bridges:
         _bridges[pid] = UmmSglangBridge(
-            meta_addr="10.44.231.62:20001",
-            mem_addr="10.44.231.62:20002",
+            meta_addr="127.0.0.1:20001",
+            mem_addr="127.0.0.1:20002",
             ssd_path="/tmp/umm_ssd.raw",
             ssd_size=256 * 1024**3,
         )
@@ -75,8 +75,8 @@ class UmmSglangBridge:
 
     def __init__(
         self,
-        meta_addr: str = "10.44.231.62:20001",
-        mem_addr: str = "10.44.231.62:20002",
+        meta_addr: str = "127.0.0.1:20001",
+        mem_addr: str = "127.0.0.1:20002",
         ssd_path: str = "/tmp/umm_ssd.raw",
         ssd_size: int = SSD_TOTAL_SIZE,
     ):
